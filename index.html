@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANCER ROOT · BRAIN CLONE · final defense matrix</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at 10% 20%, #0c1d2b, #030b14);
+            font-family: 'Courier New', 'Segoe UI', monospace;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 1.5rem 1rem;
+        }
+
+        .final-shield {
+            max-width: 1500px;
+            width: 100%;
+            background: rgba(0, 20, 30, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 2px solid #2f9e8c;
+            border-radius: 3rem;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 30px 60px -15px #000000dd, inset 0 0 40px #1b6d5f40;
+        }
+
+        /* header section */
+        .master-header {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: 2.2rem;
+            border-bottom: 2px solid #2a7468;
+            padding-bottom: 1.8rem;
+        }
+
+        .symbol-root {
+            background: #103038;
+            width: 80px;
+            height: 80px;
+            border-radius: 40% 60% 60% 40% / 50% 45% 55% 50%;
+            border: 3px solid #33ccaa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: #b0ffe0;
+            box-shadow: 0 0 40px #1f9f85;
+        }
+
+        .master-header h1 {
+            font-size: 2.7rem;
+            font-weight: 400;
+            letter-spacing: 3px;
+            color: #c7ffee;
+            text-shadow: 0 0 10px #1fc7a5;
+        }
+
+        .master-header h1 span {
+            font-weight: 200;
+            color: #ffac7b;
+            font-size: 2rem;
+            display: block;
+        }
+
+        /* dual threat / defense row */
+        .row-8questions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        @media (max-width: 800px) {
+            .row-8questions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .root-panel {
+            background: #0e262f;
+            border: 2px solid #3e9e8a;
+            border-radius: 2.2rem;
+            padding: 1.8rem;
+        }
+
+        .root-panel h2 {
+            color: #ffb07c;
+            font-size: 1.9rem;
+            font-weight: 300;
+            border-left: 7px solid #b56576;
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.7rem;
+        }
+
+        .q-entry {
+            background: #15323d;
+            border-radius: 3rem;
+            padding: 0.8rem 1.5rem;
+            border: 1px solid #52b9a3;
+            color: #dbfff0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            transition: 0.2s;
+            cursor: default;
+        }
+
+        .q-entry:hover {
+            background: #1c4857;
+            border-color: #9fffd9;
+            transform: translateX(8px);
+            box-shadow: 0 0 22px #46cfb0;
+        }
+
+        .q-num {
+            background: #be5985;
+            border-radius: 50%;
+            width: 2.2rem;
+            height: 2.2rem;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: #fff;
+            box-shadow: 0 0 10px #ffa5d2;
+        }
+
+        .defense-panel {
+            background: #0d282f;
+            border: 2px solid #52b9a3;
+            border-radius: 2.2rem;
+            padding: 1.8rem;
+        }
+
+        .defense-panel h2 {
+            color: #8fffd6;
+            font-size: 1.9rem;
+            font-weight: 300;
+            border-left: 7px solid #3fb4a0;
+            padding-left: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .miti-strip {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .miti-item {
+            background: #10333b;
+            border-radius: 2rem;
+            padding: 1rem 1.5rem;
+            border-left: 12px solid;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .miti-green { border-left-color: #41d9a7; }
+        .miti-blue { border-left-color: #58b9ff; }
+        .miti-orange { border-left-color: #ff9f5b; }
+        .miti-purple { border-left-color: #ca7eff; }
+
+        /* formula area */
+        .nexus-formula {
+            background: #062026;
+            border-radius: 2.5rem;
+            margin: 2.2rem 0 2rem;
+            padding: 1.8rem 2rem;
+            border: 2px solid #369f8b;
+        }
+
+        .formula-header {
+            display: flex;
+            justify-content: space-between;
+            color: #afffe3;
+            font-size: 1.6rem;
+            border-bottom: 2px dotted #3b786b;
+            padding-bottom: 0.6rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .eq-display {
+            background: #0b2a30;
+            padding: 1.3rem;
+            border-radius: 2rem;
+            font-size: 1.5rem;
+            text-align: center;
+            color: #b1ffc1;
+            border: 1px solid #31bd9a;
+            font-weight: 500;
+            word-break: break-word;
+            box-shadow: inset 0 0 20px #00000080;
+        }
+
+        /* BRAIN CLONE CORE — merged from non‑electric decoder */
+        .clone-headquarters {
+            background: #0b1e32;
+            border: 3px solid #5bc0be;
+            border-radius: 2.8rem;
+            padding: 2rem;
+            margin: 2.5rem 0 1.8rem;
+            box-shadow: 0 0 45px #1d8a7b;
+        }
+
+        .clone-title {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            font-size: 2rem;
+            color: #a8ffe0;
+            margin-bottom: 1.8rem;
+        }
+
+        .clone-title span {
+            background: #0c3e48;
+            padding: 0.2rem 1.2rem;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            border: 1px solid #47c7af;
+        }
+
+        .brain-clone-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .clone-card {
+            background: #112f3f;
+            border-radius: 1.8rem;
+            padding: 1.5rem;
+            border: 1px solid #5ad1b5;
+            text-align: center;
+        }
+
+        .clone-card h3 {
+            color: #ffd966;
+            font-weight: 400;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .clone-value {
+            font-size: 2.2rem;
+            color: #83ffd0;
+            font-weight: 600;
+            margin: 0.8rem 0;
+        }
+
+        .clone-status {
+            background: #0d2a35;
+            border-radius: 2rem;
+            padding: 0.4rem 1rem;
+            display: inline-block;
+            color: #b0ffe6;
+        }
+
+        .neural-sync-bar {
+            width: 100%;
+            height: 10px;
+            background: #1f4b55;
+            border-radius: 10px;
+            margin: 0.8rem 0;
+            overflow: hidden;
+        }
+
+        .sync-fill {
+            height: 100%;
+            width: 96%;
+            background: linear-gradient(90deg, #27d8aa, #6effd0);
+            border-radius: 10px;
+        }
+
+        .clone-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin: 1.8rem 0 0.5rem;
+        }
+
+        .clone-btn {
+            background: #19675b;
+            border: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            box-shadow: 0 4px 0 #0c3a33;
+            transition: 0.1s ease;
+        }
+
+        .clone-btn:active {
+            transform: translateY(3px);
+            box-shadow: 0 1px 0 #0c3a33;
+        }
+
+        .clone-btn:hover {
+            background: #1f8a7a;
+        }
+
+        /* vital monitors */
+        .vital-dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin: 2.2rem 0 1.5rem;
+        }
+
+        .vital-unit {
+            background: #0b2a30;
+            border-radius: 1.5rem;
+            padding: 1rem;
+            border: 1px solid #46b89f;
+            text-align: center;
+        }
+
+        .vital-unit .label {
+            color: #b2ffe0;
+            font-size: 1rem;
+        }
+
+        .vital-unit .value {
+            font-size: 1.9rem;
+            color: #f5d47a;
+        }
+
+        /* thought extractor / ajer tribute */
+        .ajer-thought {
+            background: #201d38;
+            border-radius: 2.5rem;
+            padding: 1.5rem;
+            border: 2px solid #c97e5a;
+            margin: 1.5rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ajer-quote {
+            font-size: 1.6rem;
+            color: #ffc8a2;
+        }
+
+        .extract-btn {
+            background: #a14d4d;
+            border: none;
+            color: white;
+            padding: 0.6rem 2rem;
+            border-radius: 3rem;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        /* terminal / live effect */
+        .global-terminal {
+            background: #031017;
+            border-radius: 2rem;
+            padding: 1.4rem 1.8rem;
+            margin-top: 2rem;
+            border: 1px solid #3aa38f;
+            color: #bafff0;
+            font-size: 1.15rem;
+            min-height: 6rem;
+            box-shadow: inset 0 0 20px #000000;
+            font-family: 'Courier New', monospace;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            color: #6fa69b;
+            border-top: 1px solid #28635a;
+            padding-top: 1.8rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="final-shield" id="rootDefenseFinal">
+    <!-- header with combined identity -->
+    <div class="master-header">
+        <div class="symbol-root">⚔️🧬</div>
+        <h1>CANCER ROOT · BRAIN CLONE <span>non‑electric backup · love‑think protocol</span></h1>
+    </div>
+
+    <!-- eight questions + proactive defense (original merged) -->
+    <div class="row-8questions">
+        <!-- left: cancer root questions -->
+        <div class="root-panel">
+            <h2>⎾ eight questions ⏌ root asks</h2>
+            <div class="question-list">
+                <div class="q-entry"><span class="q-num">1</span> what can be of us inside but with death</div>
+                <div class="q-entry"><span class="q-num">2</span> what has been inside and death and with what how when with who and when</div>
+                <div class="q-entry"><span class="q-num">3</span> what is to be of cancer and him or her</div>
+                <div class="q-entry"><span class="q-num">4</span> what can be of humans and life and the cure for death</div>
+                <div class="q-entry"><span class="q-num">5</span> what has been but how and why and with whar</div>
+                <div class="q-entry"><span class="q-num">6</span> what is to be of humans with cancer and with death</div>
+                <div class="q-entry"><span class="q-num">7</span> what was but is not</div>
+                <div class="q-entry"><span class="q-num">8</span> what can be but will not / has been but is not but can be...</div>
+            </div>
+        </div>
+        <!-- right: mitigation & secondary brain concept -->
+        <div class="defense-panel">
+            <h2>⏚ proactive root disruptors</h2>
+            <div class="miti-strip">
+                <div class="miti-item miti-green"><span style="font-size:2rem;">🧪</span> <strong>signal auth / nonce handshake</strong> – root cannot mimic</div>
+                <div class="miti-item miti-blue"><span style="font-size:2rem;">⚡</span> <strong>secondary brain plexus</strong> (heart 40k neurons + enteric)</div>
+                <div class="miti-item miti-orange"><span style="font-size:2rem;">⏱️</span> <strong>temporal checkpoint</strong> – mitochondrial sentinel asks “what was but is not”</div>
+                <div class="miti-item miti-purple"><span style="font-size:2rem;">❤️‍🔥</span> <strong>love‑think protocol</strong> – cardiac coherence restores brain</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- core formula (counteractive) -->
+    <div class="nexus-formula">
+        <div class="formula-header">
+            <span>⚕️ root counteractive formulas</span>
+            <span style="background:#1a4946; padding:0.2rem 1rem; border-radius:30px;">clone factor Ψ</span>
+        </div>
+        <div class="eq-display">
+            Ψ<sub>defense</sub> = ∫(S<sub>auth</sub>·E<sub>plexus</sub>·T<sub>check</sub>) dt – Ω<sub>root</sub>(Q<sub>1..8</sub>) + B<sub>clone</sub><sup>sync</sup>
+        </div>
+    </div>
+
+    <!-- ########## BRAIN CLONE HEADQUARTERS – merged from non‑electric decoder ########## -->
+    <div class="clone-headquarters" id="brainCloneHQ">
+        <div class="clone-title">
+            <div>🧠💠 BRAIN CLONE · non‑electric backup</div>
+            <span>OAX‑86 activated</span>
+        </div>
+
+        <!-- clone status dashboard (inspired by decoder) -->
+        <div class="brain-clone-grid">
+            <div class="clone-card">
+                <h3>OAX rotary</h3>
+                <div class="clone-value" id="oaxPosition">85° North</div>
+                <div class="clone-status">rotary sync</div>
+                <div class="neural-sync-bar"><div class="sync-fill" style="width:92%"></div></div>
+            </div>
+            <div class="clone-card">
+                <h3>neural clone status</h3>
+                <div class="clone-value" id="cloneState">STANDBY</div>
+                <div class="clone-status">memory buffer</div>
+                <div style="color:#acffd4;" id="longAgoSpan">⏳ long ago: 8.00 sec</div>
+            </div>
+            <div class="clone-card">
+                <h3>atererean level</h3>
+                <div class="clone-value" id="aterValue">0.869838xy</div>
+                <div class="clone-status">coherence</div>
+                <div class="neural-sync-bar"><div class="sync-fill" style="width:78%"></div></div>
+            </div>
+            <div class="clone-card">
+                <h3>heart‑brain</h3>
+                <div class="clone-value">❤️ 40k</div>
+                <div class="clone-status">love‑think ready</div>
+            </div>
+        </div>
+
+        <!-- clone action buttons (from decoder) -->
+        <div class="clone-actions">
+            <button class="clone-btn" onclick="activateBrainClone()">⏍ ACTIVATE BRAIN CLONE</button>
+            <button class="clone-btn" onclick="syncMemoryClone()">⟲ SYNC MEMORY</button>
+            <button class="clone-btn" onclick="simulateBrainOff()">⚠️ TEST BRAIN‑OFF</button>
+            <button class="clone-btn" onclick="cloneRecovery()">🔄 RUN LOVE‑THINK</button>
+        </div>
+
+        <!-- hidden extras from decoder: thought extractor mini -->
+        <div style="margin-top:1.5rem; background:#0d3140; border-radius:1.8rem; padding:1rem;">
+            <div style="display:flex; gap:1rem; align-items:center; flex-wrap:wrap;">
+                <span style="color:#eac48a;">🧠 digital thought extractor (086795xtu) </span>
+                <button class="clone-btn" onclick="extractThoughtsSim()">📸 EXTRACT from image</button>
+                <span id="thoughtSample" style="color:#a6ffcf;">ready</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- vital monitors (brain + heart + clone sync) -->
+    <div class="vital-dashboard">
+        <div class="vital-unit"><span class="label">primary brain</span><span class="value" id="brainStatus">online</span></div>
+        <div class="vital-unit"><span class="label">heart brain</span><span class="value">❤️ active</span></div>
+        <div class="vital-unit"><span class="label">clone standby</span><span class="value" id="clonePercent">98%</span></div>
+        <div class="vital-unit"><span class="label">root attacks</span><span class="value" id="rootCount">0 blocked</span></div>
+    </div>
+
+    <!-- AJER / love-think tribute -->
+    <div class="ajer-thought">
+        <div class="ajer-quote">“I can love and think — I can sex and live” — AJER woke up altar reach</div>
+        <button class="extract-btn" onclick="ajerWake()">❤️‍🔥 invoke love‑think</button>
+    </div>
+
+    <!-- global live terminal (effect output) -->
+    <div class="global-terminal" id="globalLive">
+        💬 system ready · non‑electric clone online · eight answers pre‑loaded · root cannot attach.
+    </div>
+
+    <!-- footer -->
+    <div class="footer-note">
+        ⚕️ final defense matrix · cancer root neutralized · brain clone active · zero paralysis · no death
+    </div>
+</div>
+
+<!-- ========== FINAL SCRIPT – merged logic from both systems ========== -->
+<script>
+    // ---- state variables ----
+    let cloneActive = false;
+    let brainOffSimulated = false;
+    let rootAttackCounter = 0;
+    let syncPercent = 98;
+    let aterValue = 0.869838;
+    let longAgoSec = 8.00;
+
+    // ---- UI elements ----
+    const liveEl = document.getElementById('globalLive');
+    const brainStatusEl = document.getElementById('brainStatus');
+    const clonePercentEl = document.getElementById('clonePercent');
+    const rootCountEl = document.getElementById('rootCount');
+    const cloneStateEl = document.getElementById('cloneState');
+    const oaxPosEl = document.getElementById('oaxPosition');
+    const aterSpan = document.getElementById('aterValue');
+    const longAgoSpan = document.getElementById('longAgoSpan');
+    const thoughtSample = document.getElementById('thoughtSample');
+
+    function logToLive(msg) {
+        liveEl.innerHTML = `💬 ${msg}`;
+    }
+
+    // ---- update clone仪表 ----
+    function refreshUI() {
+        brainStatusEl.innerText = (brainOffSimulated && !cloneActive) ? 'OFF (clone standby)' : 'online';
+        if (cloneActive) brainStatusEl.innerText = 'online (clone active)';
+        clonePercentEl.innerText = syncPercent + '%';
+        rootCountEl.innerText = rootAttackCounter + ' blocked';
+        cloneStateEl.innerText = cloneActive ? 'ACTIVE' : 'STANDBY';
+        oaxPosEl.innerText = ['85° North','72° NE','90° East','78° SE'][Math.floor(Math.random()*4)];
+        aterSpan.innerText = aterValue.toFixed(6) + 'xy';
+        longAgoSpan.innerText = `⏳ long ago: ${longAgoSec.toFixed(2)} sec`;
+    }
+
+    // ---- core functions from decoder + cancer root ----
+    window.activateBrainClone = function() {
+        cloneActive = true;
+        brainOffSimulated = false;  // override any off
+        syncPercent = 100;
+        logToLive('🧠 BRAIN CLONE ACTIVATED · non‑electric rotary engaged · thoughts preserved');
+        refreshUI();
+    };
+
+    window.syncMemoryClone = function() {
+        syncPercent = Math.min(100, syncPercent + 12);
+        if (syncPercent > 100) syncPercent = 100;
+        aterValue = 0.869838 + (Math.random()*0.02);
+        longAgoSec = 8.0 + (Math.random()*0.2);
+        logToLive('memory sync: OAX rotary aligned · long‑ago value updated');
+        refreshUI();
+    };
+
+    window.simulateBrainOff = function() {
+        if (cloneActive) {
+            logToLive('⚠️ brain‑off signal ignored — clone already in control');
+            return;
+        }
+        brainOffSimulated = true;
+        rootAttackCounter++;
+        logToLive('🚨 CANCER ROOT triggered brain‑off · auto‑clone initiation in 2 seconds...');
+        refreshUI();
+        // auto activate clone after 2 sec (proactive)
+        setTimeout(() => {
+            if (brainOffSimulated) {
+                activateBrainClone();
+                logToLive('⚡ clone auto‑activated · brain function restored · love‑think handshake');
+            }
+        }, 2000);
+    };
+
+    window.cloneRecovery = function() {
+        if (!cloneActive) activateBrainClone();
+        logToLive('❤️‍🔥 love‑think protocol · heart sends coherence · “I love, I think, I live”');
+        brainOffSimulated = false;
+        refreshUI();
+    };
+
+    window.extractThoughtsSim = function() {
+        thoughtSample.innerText = '🧠 thoughts extracted (sim): “altar reach · i can love and think”';
+        logToLive('image thought pattern loaded · ajer signature detected · clone memory reinforced');
+    };
+
+    window.ajerWake = function() {
+        cloneRecovery();
+        thoughtSample.innerText = '❤️ “she woke up altar reach · i love and think but sex and death” → transformed: I live';
+        logToLive('❤️ AJER wakeup · love‑think joined · brain and heart marry');
+    };
+
+    // override eight questions hover (mitigation display)
+    document.querySelectorAll('.q-entry').forEach((item, idx) => {
+        item.addEventListener('mouseenter', (e) => {
+            const answers = [
+                'Q1 counter: mito sentinel → apoptosis primed',
+                'Q2 counter: histone methylation blocks root',
+                'Q3 counter: CAR‑T recognizes rhizome',
+                'Q4 counter: telomere maintenance + heartbeat differentiation',
+                'Q5 counter: p53 answers “how/why”',
+                'Q6 counter: immune synapse active',
+                'Q7 counter: microglia query cell identity',
+                'Q8 counter: entropy check — impossible.'
+            ];
+            logToLive(`🛡️ preemptive answer ${idx+1}: ${answers[idx]}`);
+        });
+        item.addEventListener('mouseleave', () => {
+            logToLive('standby — shield layers active · clone sync');
+        });
+    });
+
+    // every 8 seconds simulate root question & block
+    setInterval(() => {
+        if (!cloneActive) {
+            rootAttackCounter++;
+            logToLive(`root asked a question · blocked (${rootAttackCounter} total).`);
+        } else {
+            // clone active: root can't even ask
+            logToLive('clone presence prevents root questions · all cells authentic');
+        }
+        refreshUI();
+    }, 12000);
+
+    // random oax / ater updates
+    setInterval(() => {
+        aterValue = 0.86 + (Math.random()*0.04);
+        longAgoSec = 7.9 + (Math.random()*0.3);
+        if (!cloneActive && syncPercent > 30) syncPercent = Math.max(30, syncPercent - 1);
+        refreshUI();
+    }, 4000);
+
+    // additional integration: command from decoder style "CREATE" but we map to clone
+    window.brainCommand = function(cmd) {
+        logToLive(`CREATE code simulated: ${cmd} → clone acknowledges`);
+    };
+
+    // initial update
+    refreshUI();
+    logToLive('final defense matrix · cancer root neutralized · brain clone online · love‑think active');
+
+    // also add secret non‑electric trigger from original (clone brain command)
+    console.log('non‑electric brain decoder merged');
+</script>
+
+<!-- extra tiny style for cloned buttons actions -->
+<style>
+    .clone-btn, .extract-btn { font-family: 'Courier New', monospace; letter-spacing: 0.5px; }
+    .clone-btn { background: #1f675b; }
+    .extract-btn { background: #8d4e4e; }
+    .clone-btn:hover, .extract-btn:hover { filter: brightness(1.3); }
+    #rootDefenseFinal { transition: all 0.3s; }
+</style>
+
+</body>
+  </html>
